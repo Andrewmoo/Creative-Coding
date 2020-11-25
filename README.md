@@ -1,3 +1,3 @@
 # Creative Coding
-Color Shape<h2>
+<h2>Color Shape</h2>
 
