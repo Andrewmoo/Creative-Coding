@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Andrew's Creative Coding Blog</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="Color-Shape.html">Color-Shape</a></li>
+        <li><a href="Shape-Pattern.html">Shape-Pattern</a></li>
+      </ul><br>
+    </div>
+
+    <div class="col-sm-9">
+      <h4><small>Creative Computing Year 4 - All Sketches can be accessed by clicking the exercise</small></h4>
+      <hr>
+      <h2><a href="Color-Shape/Main Exercises/Exercise 01 - Spectrum Loop/index.html">Exercise 01</a></h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Andrew Bell, Dec 01, 2020.</h5>
+      <p>Exercise 01-Spectrum Loop
+        In this exercise we created specrum of color looped across the screen with the hue increasing across the X axis and the saturation increasing across the Y axis. this was achieved by creating a simple loop that created a grid of squares that were then filled using a gridX variable</p>
+      <br><br>
+      <img src="images/Color-Shape-E01.png" class="img-rounded" alt="Cinque Terre">
+
+      <hr>
+      <h2><a href="Color-Shape/Main Exercises/Exercise 02 - Spectrum Interactivity and Vertex/index.html">Exercise 02</a></h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Andrew Bell, Dec 01, 2020.</h5>
+      <p>Exercise 02-Interactivity and Vertex introduction
+        This exercise involved us adding interactivity to the previous Spectrum Loop exercise, the interaction is simply mouse movement. towards the end of class we began looking at using vertices to build shapes.</p>
+      <br><br>
+      <img src="images/Color-Shape-E02.png" class="img-rounded" alt="Cinque Terre">
+
+      <hr>
+      <h2><a href="Color-Shape/Main Exercises/Exercise 03 - Colour Wheel/index.html">Exercise 03</a></h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Andrew Bell, Dec 01, 2020.</h5>
+      <p>Exercise 03-Color Wheel
+        This exercise had us create a color wheel using the triangle fan shape to create a set of verticies that create a series of conecting triangles, in this exercise we also learned about translations, push and pop.</p>
+      <br><br>
+      <img src="images/Color-Shape-E03.png" class="img-rounded" alt="Cinque Terre">
+
+      <hr>
+      <h2><a href="Color-Shape/Main Exercises/Exercise 04 Personal Design (Final output)/index.html">Exercise 04</a></h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Andrew Bell, Dec 01, 2020.</h5>
+      <p>Exercise 04-Personal Design
+        The final exercise in the Color Shape section had us pick a reference image and create our own design using what we had learned so far, personally I wasn't happy with my eventual outcome as it was more programmatic than design oriented and I did not follow the intended process.</p>
+      <br><br>
+      <img src="images/Color-Shape-E04.png" class="img-rounded" alt="Cinque Terre">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+</html>

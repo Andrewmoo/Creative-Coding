@@ -1,12 +1,12 @@
 //Output must be 3508 x 4960
 
-var delaunayTriangulation;
-var hue;
+let delaunayTriangulation;
+let hue;
 let colors;
 let colorSchemeIndex;
 
 function setup() {
-  createCanvas(1754, 2481);
+  createCanvas(2481, 1754);
   colorMode(HSB, 360, 100, 100);
   hue = random(360);
   delaunayTriangulation = new DelaunayTriangulation();
@@ -14,7 +14,7 @@ function setup() {
   delaunayTriangulation.add(new Vertex(createVector(width + 200, 0 - 200)));
   delaunayTriangulation.add(new Vertex(createVector(width + 200, height + 200)));
   delaunayTriangulation.add(new Vertex(createVector(0 - 200, height + 200)));
-  for (var i = 0; i < 500; i++) {
+  for (let i = 0; i < 500; i++) {
     delaunayTriangulation.add(new Vertex(createVector(random(-200, width + 200), random(-200, height + 200))));
   }
   drawTriangles();
@@ -23,15 +23,15 @@ function setup() {
 
 function drawTriangles() {
   background(0, 0, 100);
-  var triangles = delaunayTriangulation.getTriangles();
-  let nrOfColorSchemes = 5;
+  let triangles = delaunayTriangulation.getTriangles();
+  let nrOfColorSchemes = 1;
   colorSchemeIndex = Math.floor(Math.random() * nrOfColorSchemes);
-  for (var ti = 0; ti < triangles.length; ti++) {
-    var t = triangles[ti];
-    var sat = 0;
-    var bri = 0;
-    for(var vi = 0; vi < 3; vi++) {
-      var v = t.vertices[vi];
+  for (let ti = 0; ti < triangles.length; ti++) {
+    let t = triangles[ti];
+    let sat = 0;
+    let bri = 0;
+    for(let vi = 0; vi < 3; vi++) {
+      let v = t.vertices[vi];
       sat += v.sat;
       bri += v.bri;
     }
@@ -57,26 +57,26 @@ function draw() {
 
 function getRandomColor() {
   colors = [
-    [
-      "#D4F1F4",
-      "#75E6DA",
-      "#189AB4",
-      "#05445E",
-    ]
-    [
-      "#f5cdee",
-      "#e7cff5",
-      "#ffffff",
-      "#8893c4",
-      "#3a3b4c"
-    ],
-    [
-      "#ff7400",
-      "#ff9a00",
-      "#ffb400",
-      "#4094b4",
-      "#0083c3"
-    ],
+    // [
+    //   "#D4F1F4",
+    //   "#75E6DA",
+    //   "#189AB4",
+    //   "#05445E",
+    // ]
+    // [
+    //   "#f5cdee",
+    //   "#e7cff5",
+    //   "#ffffff",
+    //   "#8893c4",
+    //   "#3a3b4c"
+    // ],
+    // [
+    //   "#ff7400",
+    //   "#ff9a00",
+    //   "#ffb400",
+    //   "#4094b4",
+    //   "#0083c3"
+    // ],
     [
       "#deeaee",
       "#b1cbbb",
@@ -84,13 +84,13 @@ function getRandomColor() {
       "#c94c4c",
       "#8d1414"
     ],
-    [
-      "#999999",
-      "#777777",
-      "#555555",
-      "#333333",
-      "#111111"
-    ]
+    // [
+    //   "#999999",
+    //   "#777777",
+    //   "#555555",
+    //   "#333333",
+    //   "#111111"
+    // ]
   ]
 
   let len = colors[colorSchemeIndex].length;
@@ -104,12 +104,12 @@ function DelaunayTriangulation() {
   this.superVertices = [];
 
   //Super Triangle
-  var center = createVector(width / 2, height / 2);
-  var radius = sqrt(sq(width) + sq(height)) / 2;
-  var v1 = new Vertex(createVector(center.x - sqrt(3) * radius, center.y - radius));
-  var v2 = new Vertex(createVector(center.x + sqrt(3) * radius, center.y - radius));
-  var v3 = new Vertex(createVector(center.x, center.y +  2 * radius));
-  var t = new Triangle([v1, v2, v3]); //Creates super Triangle
+  let center = createVector(width / 2, height / 2);
+  let radius = sqrt(sq(width) + sq(height)) / 2;
+  let v1 = new Vertex(createVector(center.x - sqrt(3) * radius, center.y - radius));
+  let v2 = new Vertex(createVector(center.x + sqrt(3) * radius, center.y - radius));
+  let v3 = new Vertex(createVector(center.x, center.y +  2 * radius));
+  let t = new Triangle([v1, v2, v3]); //Creates super Triangle
   this.superVertices.push(v1);
   this.superVertices.push(v2);
   this.superVertices.push(v3);
@@ -120,7 +120,7 @@ function DelaunayTriangulation() {
 
   //Adds the points to the calculation and updates the Triangulation
   this.add = function(v) {
-    for (var i = 0; i < this.vertices.length; i++) {
+    for (let i = 0; i < this.vertices.length; i++) {
       if(v.loc.x == this.vertices[i].loc.x && v.loc.y == this.vertices[i].loc.y) {
         return;
       }
@@ -129,11 +129,11 @@ function DelaunayTriangulation() {
 
     //Adds vertices if they don't exist
     this.vertices.push(v);
-    var nextTriangles = []; //Array to store new Delaunay Triangles
-    var newTriangles = []; //Array to insert newly divided Triangles
-    for (var ti = 0; ti < this.triangles.length; ti++) {
+    let nextTriangles = []; //Array to store new Delaunay Triangles
+    let newTriangles = []; //Array to insert newly divided Triangles
+    for (let ti = 0; ti < this.triangles.length; ti++) {
         //Incrementally extract triangles from the Delaunay Triangles Array
-        var tri = this.triangles[ti];
+        let tri = this.triangles[ti];
 
       //If the circumscribed circle of the trianle that you just extracted contains any
       //vertices from any other Triangle then....
@@ -149,11 +149,11 @@ function DelaunayTriangulation() {
 
     //newTriangles[] now contains a number of newly divided triangles as well as
     //illegal ones
-    for (var ti = 0; ti < newTriangles.length; ti++) {
-      var tri = newTriangles[ti];
-      var isIllegal = false;
+    for (let ti = 0; ti < newTriangles.length; ti++) {
+      let tri = newTriangles[ti];
+      let isIllegal = false;
       //Checks if a triangle lies inside the circumcircle of any other one
-      for (var vi = 0; vi < this.vertices.length; vi++) {
+      for (let vi = 0; vi < this.vertices.length; vi++) {
         if (this.isIllegalTriangle(tri, this.vertices[vi])) {
           isIllegal = true;
           break;
@@ -170,11 +170,11 @@ function DelaunayTriangulation() {
 
   //From the divided triangles delete the ones that aren't legal
   this.getTriangles = function() {
-    var ts = [];
-    for (var ti = 0; ti < this.triangles.length; ti++) {
-      var t = this.triangles[ti];
-      var hasSuperVertex = false;
-      for (var vi = 0; vi < 3; vi++) {
+    let ts = [];
+    for (let ti = 0; ti < this.triangles.length; ti++) {
+      let t = this.triangles[ti];
+      let hasSuperVertex = false;
+      for (let vi = 0; vi < 3; vi++) {
         if (t.isContain(this.superVertices[vi])) {
           hasSuperVertex = true;
         }
@@ -205,36 +205,36 @@ function DelaunayTriangulation() {
 function Triangle(vertices) {
   this.vertices = vertices;
 
-  var v1 = this.vertices[0].loc;
-  var v2 = this.vertices[1].loc;
-  var v3 = this.vertices[2].loc;
-  var c = 2 * ((v2.x - v1.x) * (v3.y - v1.y) - (v2.y - v1.y) * (v3.x - v1.x));
-  var x = ((v3.y - v1.y) * (sq(v2.x) - sq(v1.x) + sq(v2.y) - sq(v1.y)) + (v1.y - v2.y) * (sq(v3.x) - sq(v1.x) + sq(v3.y) - sq(v1.y))) / c;
-  var y = ((v1.x - v3.x) * (sq(v2.x) - sq(v1.x) + sq(v2.y) - sq(v1.y)) + (v2.x - v1.x) * (sq(v3.x) - sq(v1.x) + sq(v3.y) - sq(v1.y))) / c;
-  var center = createVector(x, y);//Center of the circumscribed circle
-  var radius = v1.dist(center);//Radius of the circumscribed circle
+  let v1 = this.vertices[0].loc;
+  let v2 = this.vertices[1].loc;
+  let v3 = this.vertices[2].loc;
+  let c = 2 * ((v2.x - v1.x) * (v3.y - v1.y) - (v2.y - v1.y) * (v3.x - v1.x));
+  let x = ((v3.y - v1.y) * (sq(v2.x) - sq(v1.x) + sq(v2.y) - sq(v1.y)) + (v1.y - v2.y) * (sq(v3.x) - sq(v1.x) + sq(v3.y) - sq(v1.y))) / c;
+  let y = ((v1.x - v3.x) * (sq(v2.x) - sq(v1.x) + sq(v2.y) - sq(v1.y)) + (v2.x - v1.x) * (sq(v3.x) - sq(v1.x) + sq(v3.y) - sq(v1.y))) / c;
+  let center = createVector(x, y);//Center of the circumscribed circle
+  let radius = v1.dist(center);//Radius of the circumscribed circle
   this.circumCircle = new Circle(center, radius);//Create new circle
 
   this.render = function() {
     beginShape();
-    for (var i = 0; i < 3; i++) {
-      var v = this.vertices[i].loc;
+    for (let i = 0; i < 3; i++) {
+      let v = this.vertices[i].loc;
       vertex(v.x, v.y);
     }
     endShape(CLOSE);
   }
 
   this.divide = function(v) {
-    var tris = [];
-    for (var i = 0; i < 3; i++) {
-      var j = i == 2? 0: i + 1;
+    let tris = [];
+    for (let i = 0; i < 3; i++) {
+      let j = i == 2? 0: i + 1;
       tris.push(new Triangle([this.vertices[i], this.vertices[j], v]));
     }
     return tris;
   }
 
   this.isContain = function(v) {
-    for (var i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
       if (this.vertices[i] === v) {
         return true;
       }
