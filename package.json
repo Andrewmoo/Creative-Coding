@@ -1,0 +1,23 @@
+{
+  "name": "Creative-Coding",
+  "version": "1.0.0",
+  "description": "In this exercise we created specrum of color looped across the screen with the hue increasing across the X axis and the saturation increasing across the Y axis. this was achieved by creating a simple loop that created a grid of squares that were then filled using a gridX variable",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrewmoo/Creative-Coding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andrewmoo/Creative-Coding/issues"
+  },
+  "homepage": "https://github.com/Andrewmoo/Creative-Coding#readme",
+  "dependencies": {
+    "gh-pages": "^3.1.0"
+  }
+}
