@@ -6,7 +6,7 @@ let colors;
 let colorSchemeIndex;
 
 function setup() {
-  createCanvas(2481, 1754);
+  createCanvas(828, 1762);
   colorMode(HSB, 360, 100, 100);
   hue = random(360);
   delaunayTriangulation = new DelaunayTriangulation();
@@ -14,7 +14,7 @@ function setup() {
   delaunayTriangulation.add(new Vertex(createVector(width + 200, 0 - 200)));
   delaunayTriangulation.add(new Vertex(createVector(width + 200, height + 200)));
   delaunayTriangulation.add(new Vertex(createVector(0 - 200, height + 200)));
-  for (let i = 0; i < 500; i++) {
+  for (let i = 0; i < 50; i++) {
     delaunayTriangulation.add(new Vertex(createVector(random(-200, width + 200), random(-200, height + 200))));
   }
   drawTriangles();
@@ -58,18 +58,19 @@ function draw() {
 function getRandomColor() {
   colors = [
     // [
-    //   "#D4F1F4",
-    //   "#75E6DA",
-    //   "#189AB4",
-    //   "#05445E",
+    //   "#03045e",
+    //   "#0077b6",
+    //   "#00b4d8",
+    //   "#90e0ef",
+    //   "#caf0f8",
     // ]
-    // [
-    //   "#f5cdee",
-    //   "#e7cff5",
-    //   "#ffffff",
-    //   "#8893c4",
-    //   "#3a3b4c"
-    // ],
+    [
+      "#f5cdee",
+      "#e7cff5",
+      "#ffffff",
+      "#8893c4",
+      "#3a3b4c"
+    ],
     // [
     //   "#ff7400",
     //   "#ff9a00",
@@ -77,13 +78,13 @@ function getRandomColor() {
     //   "#4094b4",
     //   "#0083c3"
     // ],
-    [
-      "#deeaee",
-      "#b1cbbb",
-      "#eea29a",
-      "#c94c4c",
-      "#8d1414"
-    ],
+    // [
+    //   "#deeaee",
+    //   "#b1cbbb",
+    //   "#eea29a",
+    //   "#c94c4c",
+    //   "#8d1414"
+    // ],
     // [
     //   "#999999",
     //   "#777777",
